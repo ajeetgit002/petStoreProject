@@ -19,7 +19,7 @@
 		  </Console>
 		  
 	   
-	   <RollingFile name="File" fileName="${bassPath}/automation.log" filePattern="${bassPath}/automation-%d{MM-dd-yyyy} " >
+	   <RollingFile name="File" fileName="${bassPath}/Logs.log" filePattern="${bassPath}/Logs-%d{MM-dd-yyyy} " >
    <PatternLayout pattern="%d{HH:mm:ss.SSS}[%t] %-5level %logger{36} - %msg%n"/>
   <SizeBasedTriggeringPolicy size="50000"/>
   </RollingFile>
