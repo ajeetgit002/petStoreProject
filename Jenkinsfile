@@ -39,7 +39,7 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                junit 'target\\surefire-reports\\*.html' // Use Windows-style file paths
+                  testng '**/target/testng-*.html'  // Use Windows-style file paths
             }
         }
     }
