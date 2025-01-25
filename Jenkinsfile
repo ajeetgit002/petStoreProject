@@ -39,10 +39,11 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                 
+                // Archive the test results here
+                archiveArtifacts artifacts: '**/test-output/test-*.xml', allowEmptyArchive: true
+            }
         }
     }
-     
 
     post {
         always {
@@ -55,5 +56,4 @@ pipeline {
             echo 'Pipeline failed. Check the logs for errors.'
         }
     }
-}
 }
