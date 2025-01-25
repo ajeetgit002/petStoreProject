@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         MAVEN_HOME = 'C:\\Program Files\\Apache\\maven' // Update with your Maven installation path
-        JAVA_HOME = 'C:\\Program Files\\OpenJDK\\jdk-11' // Update to match your Java version
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.1' // Update to match your Java version
     }
 
     stages {
@@ -39,7 +39,7 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                junit 'target\\surefire-reports\\*.xml' // Use Windows-style file paths
+                junit 'target\\surefire-reports\\*.html' // Use Windows-style file paths
             }
         }
     }
