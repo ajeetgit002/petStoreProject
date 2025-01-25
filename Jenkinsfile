@@ -46,11 +46,12 @@ pipeline {
             steps {
                 publishHTML([
                     reportName: 'Extent Report',
-                    reportDir: 'petStoreProject/reports',  // The directory containing your report
-                    reportFiles: 'Test-Report--01-25-2025/index.html',  // The specific HTML report file
+                    reportDir: 'petStoreProject/reports', 
+                    reportFiles: 'Test-Report--01-25-2025/index.html',  /
                     alwaysLinkToLastBuild: true,
                     keepAll: true
                 ])
+            }
             }
 
     post {
