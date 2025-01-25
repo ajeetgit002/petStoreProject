@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = 'C:\\Program Files\\Apache\\maven' // Update with your Maven installation path
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.1' // Update to match your Java version
+        MAVEN_HOME = 'C:\\Program Files\\Apache\\maven'
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.1'
     }
 
     stages {
@@ -39,7 +39,6 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                // Archive the test results here
                 archiveArtifacts artifacts: '**/test-output/reports/Report.html', allowEmptyArchive: true
             }
         }
@@ -67,6 +66,5 @@ pipeline {
                 attachmentsPattern: '**/test-output/reports/Report.html'
             )
         }
-    }
     }
 }
