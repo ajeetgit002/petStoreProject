@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo 'Archiving test results...'
                 // Archive the test results here
-                archiveArtifacts artifacts: '**/test-output/test-*.xml', allowEmptyArchive: true
+                archiveArtifacts artifacts: '**/target/test-output/emailable-report.html', allowEmptyArchive: true
             }
         }
     }
