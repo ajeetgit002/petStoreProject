@@ -13,12 +13,9 @@ public class DataPrividers {
 	public String[][] getAllData() throws IOException {
 		
 		
-//		String path =System.getProperty("user.dir")+"\\testData\\UserData.xlsx";
-		String filePath = "testData/UserData.xlsx";
-		File file = new File(filePath);
-		if (!file.exists()) {
-		    throw new FileNotFoundException("File not found: " + file.getAbsolutePath());
-		}
+
+		String filePath = "src/test/resources/testData/UserData.xlsx";
+
 
 		
 		XLUtility xl=new XLUtility(filePath);
