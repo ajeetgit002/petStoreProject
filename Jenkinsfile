@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = '/usr/share/maven' // Update with your Maven installation path
-        JAVA_HOME = '/usr/lib/jvm/java-11-openjdk-amd64' // Update to match your Java version
+        MAVEN_HOME = 'C:\\Program Files\\Apache\\maven' // Update with your Maven installation path
+        JAVA_HOME = 'C:\\Program Files\\OpenJDK\\jdk-11' // Update to match your Java version
     }
 
     stages {
@@ -17,29 +17,29 @@ pipeline {
         stage('Set Up Environment') {
             steps {
                 echo 'Setting up the environment...'
-                sh 'java -version'
-                sh 'mvn -version'
+                bat 'java -version'
+                bat 'mvn -version'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo 'Running tests...'
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                junit 'target/surefire-reports/*.xml'
+                junit 'target\\surefire-reports\\*.xml' // Use Windows-style file paths
             }
         }
     }
