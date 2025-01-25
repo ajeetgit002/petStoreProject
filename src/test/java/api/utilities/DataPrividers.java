@@ -1,5 +1,7 @@
 package api.utilities;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
@@ -11,9 +13,15 @@ public class DataPrividers {
 	public String[][] getAllData() throws IOException {
 		
 		
-		String path =System.getProperty("user.dir")+"\\testData\\UserData.xlsx";
+//		String path =System.getProperty("user.dir")+"\\testData\\UserData.xlsx";
+		String filePath = "testData/UserData.xlsx";
+		File file = new File(filePath);
+		if (!file.exists()) {
+		    throw new FileNotFoundException("File not found: " + file.getAbsolutePath());
+		}
+
 		
-		XLUtility xl=new XLUtility(path);
+		XLUtility xl=new XLUtility(filePath);
 		
 		
 	int rowcount=	xl.getRowCount("Sheet1");
