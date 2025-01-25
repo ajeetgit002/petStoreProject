@@ -39,7 +39,7 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                  testng '**/target/testng-*.html'  // Use Windows-style file paths
+                   publishTestNGResults testngResults: '**/target/testng-*.html' // Use Windows-style file paths
             }
         }
     }
