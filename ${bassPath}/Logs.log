@@ -1,4 +1,0 @@
-18:32:57.830[main] INFO  api.test.UserTest - *************************  created User**************
-18:33:02.470[main] INFO  api.test.UserTest - ************************* User Is created**************
-18:33:02.473[main] INFO  api.test.UserTest - ************************* Reading  user**************
-18:33:04.754[main] INFO  api.test.UserTest - ************************* user Is Read**************
