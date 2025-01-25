@@ -39,10 +39,19 @@ pipeline {
         stage('Archive Test Results') {
             steps {
                 echo 'Archiving test results...'
-                  publishTestNGResults(testResults: '**/test-output/emailable-report.html')// Use Windows-style file paths
-            }
+                 
         }
     }
+      stage('Publish Extent Report') {
+            steps {
+                publishHTML([
+                    reportName: 'Extent Report',
+                    reportDir: 'petStoreProject/reports',  // The directory containing your report
+                    reportFiles: 'Test-Report--01-25-2025/index.html',  // The specific HTML report file
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true
+                ])
+            }
 
     post {
         always {
