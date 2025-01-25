@@ -42,17 +42,7 @@ pipeline {
                  
         }
     }
-      stage('Publish Extent Report') {
-            steps {
-                publishHTML([
-                    reportName: 'Extent Report',
-                    reportDir: 'petStoreProject/reports', 
-                    reportFiles: 'Test-Report--01-25-2025/index.html',  /
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true
-                ])
-            }
-            }
+     
 
     post {
         always {
@@ -65,4 +55,5 @@ pipeline {
             echo 'Pipeline failed. Check the logs for errors.'
         }
     }
+}
 }
