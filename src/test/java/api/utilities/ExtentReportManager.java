@@ -23,11 +23,11 @@ public class ExtentReportManager implements ITestListener {
 
 	public void onStart(ITestContext testContest) {
 
-		String timeStamp = new SimpleDateFormat("MM-dd-yyyy hh_mm_ss").format(new Date()); // time stamp
+		String timeStamp = new SimpleDateFormat("MM_dd_yyyy_hh_mm_ss").format(new Date()); // time stamp
 
-		repName = "Test-Report--" + timeStamp + ".html";
+		repName = "Report"+ ".html";
 
-		sparkReporter = new ExtentSparkReporter(".\\reports\\"+ repName); // specify location of the report
+		sparkReporter = new ExtentSparkReporter(".\\test-output\\reports\\"+ repName); // specify location of the report
 
 		sparkReporter.config().setDocumentTitle("RestAssuredAutomationProject");// title of report
 

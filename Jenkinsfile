@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo 'Archiving test results...'
                 // Archive the test results here
-                archiveArtifacts artifacts: '**/test-output/emailable-report.html', allowEmptyArchive: true
+                archiveArtifacts artifacts: '**/test-output/reports/Report.html', allowEmptyArchive: true
             }
         }
     }
@@ -51,9 +51,22 @@ pipeline {
         }
         success {
             echo 'Build and tests ran successfully.'
+            emailext(
+                to: 'ajeet.testingqa@gmail.com',
+                subject: 'TestNG Results - Success',
+                body: 'The tests completed successfully. Please find the report attached.',
+                attachmentsPattern: '**/test-output/reports/Report.html'
+            )
         }
         failure {
             echo 'Pipeline failed. Check the logs for errors.'
+            emailext(
+                to: 'ajeet.testingqa@gmail.com',
+                subject: 'TestNG Results - Failure',
+                body: 'The pipeline failed. Please check the logs and attached report.',
+                attachmentsPattern: '**/test-output/reports/Report.html'
+            )
         }
+    }
     }
 }
