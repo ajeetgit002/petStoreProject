@@ -6,3 +6,7 @@
 09:37:52.044[main] INFO  api.test.UserTest - ************************* User Is created**************
 09:37:52.062[main] INFO  api.test.UserTest - ************************* Reading  user**************
 09:37:58.785[main] INFO  api.test.UserTest - ************************* user Is Read**************
+14:40:05.989[main] INFO  api.test.UserTest - *************************  created User**************
+14:40:11.262[main] INFO  api.test.UserTest - ************************* User Is created**************
+14:40:11.292[main] INFO  api.test.UserTest - ************************* Reading  user**************
+14:40:13.023[main] INFO  api.test.UserTest - ************************* user Is Read**************
