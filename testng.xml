@@ -2,13 +2,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<listeners>
-		<listener class-name="api.utilities.ExtentReportManager"/>		
-		</listeners>
-	
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="api.test.UserTest"/>
+		<listener class-name="api.utilities.ExtentReportManager" />
+	</listeners>
 
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="api.test.UserTest" />
+			<class name="api.test.UserTest" />
+			<class name="api.test.UserTest" />
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->
