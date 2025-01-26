@@ -18,3 +18,11 @@
 16:26:44.653[main] INFO  api.test.UserTest - ************************* User Is created**************
 16:26:44.682[main] INFO  api.test.UserTest - ************************* Reading  user**************
 16:26:47.679[main] INFO  api.test.UserTest - ************************* user Is Read**************
+12:56:12.667[main] INFO  api.test.UserTest - *************************  created User**************
+12:56:18.276[main] INFO  api.test.UserTest - ************************* User Is created**************
+12:56:18.295[main] INFO  api.test.UserTest - ************************* Reading  user**************
+12:56:21.097[main] INFO  api.test.UserTest - ************************* user Is Read**************
+12:58:08.401[main] INFO  api.test.UserTest - *************************  created User**************
+12:58:15.482[main] INFO  api.test.UserTest - ************************* User Is created**************
+12:58:15.499[main] INFO  api.test.UserTest - ************************* Reading  user**************
+12:58:19.455[main] INFO  api.test.UserTest - ************************* user Is Read**************
