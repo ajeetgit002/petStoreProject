@@ -49,9 +49,7 @@ pipeline {
         }
 
         stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
+            
             steps {
                 echo 'Pushing Docker image to registry...'
                 bat '''
