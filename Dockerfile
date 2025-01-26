@@ -5,7 +5,8 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the JAR file from the target directory into the container
-COPY target/*.jar app.jar
+COPY target/PetStoreAutomation-0.0.1-SNAPSHOT.jar app.jar
+
 
 # Expose the port your application will run on
 EXPOSE 8080
