@@ -44,7 +44,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building the Docker image...'
-                bat 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
+                bat 'docker build -t %DOCKER_IMAGE%:%DOCKER_TAG% .'
             }
         }
 
@@ -55,8 +55,8 @@ pipeline {
             steps {
                 echo 'Pushing Docker image to registry...'
                 bat '''
-                    echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
-                    docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+                    echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin
+                    docker push %DOCKER_IMAGE%:%DOCKER_TAG%
                 '''
             }
         }
