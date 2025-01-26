@@ -44,10 +44,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building the Docker image...'
-                script {
-                    // Build the Docker image
-                    sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
-                }
+                bat 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
             }
         }
 
@@ -57,13 +54,10 @@ pipeline {
             }
             steps {
                 echo 'Pushing Docker image to registry...'
-                script {
-                    // Log in to Docker
-                    sh 'echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin'
-
-                    // Push the image to Docker registry
-                    sh 'docker push ${DOCKER_IMAGE}:${DOCKER_TAG}'
-                }
+                bat '''
+                    echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
+                    docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+                '''
             }
         }
 
@@ -87,4 +81,3 @@ pipeline {
         }
     }
 }
-
