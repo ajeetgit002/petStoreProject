@@ -4,11 +4,11 @@ pipeline {
     environment {
         MAVEN_HOME = 'C:\\Program Files\\Apache\\maven'
         JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21.0.1'
-        DOCKER_REGISTRY = 'docker.io'  // Docker Hub or your registry URL
-        DOCKER_IMAGE = 'ajeetdocker002/petstore'  // Replace with your Docker image name
-        DOCKER_TAG = 'latest'  // Tag for the Docker image
-        DOCKER_USERNAME = 'ajeetdocker002'  // Your Docker username
-        DOCKER_PASSWORD = 'Admin@2024'      // Your Docker password
+        DOCKER_REGISTRY = 'docker.io'
+        DOCKER_IMAGE = 'ajeetdocker002/petstore'
+        DOCKER_TAG = 'latest'
+        DOCKER_USERNAME = 'ajeetdocker002'
+        DOCKER_PASSWORD = 'Admin@2024'
     }
 
     stages {
@@ -30,21 +30,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                bat 'mvn clean compile'
+                bat 'mvn clean install'  // Run clean install to generate the JAR file
             }
         }
 
-        stage('Run Tests') {
+        stage('Verify JAR File') {
             steps {
-                echo 'Running tests...'
-                bat 'mvn test'
-            }
-        }
-
-        stage('Verify Dockerfile') {
-            steps {
-                echo 'Verifying Dockerfile existence...'
-                bat 'dir'  // This will list the contents of the current directory to check if Dockerfile exists
+                echo 'Verifying if the JAR file exists...'
+                bat 'if exist target\\PetStoreAutomation-0.0.1-SNAPSHOT.jar (echo JAR file exists) else (echo JAR file not found)'
             }
         }
 
@@ -57,7 +50,7 @@ pipeline {
 
         stage('Push Docker Image') {
             when {
-                branch 'master'  // Only push to registry if the branch is 'master'
+                branch 'master'
             }
             steps {
                 echo 'Pushing Docker image to registry...'
