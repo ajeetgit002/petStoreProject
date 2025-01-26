@@ -18,7 +18,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Copy the built JAR file from the build stage to the runtime container
-COPY --from=target/*.jar app.jar
+COPY COPY target/*.jar app.jar
 
 # Set the command to run the application when the container starts
 ENTRYPOINT ["java", "-jar", "app.jar"]
