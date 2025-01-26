@@ -41,6 +41,13 @@ pipeline {
             }
         }
 
+        stage('Verify Dockerfile') {
+            steps {
+                echo 'Verifying Dockerfile existence...'
+                bat 'dir'  // This will list the contents of the current directory to check if Dockerfile exists
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 echo 'Building the Docker image...'
