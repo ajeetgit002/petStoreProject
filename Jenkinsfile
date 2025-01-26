@@ -50,21 +50,10 @@ pipeline {
         }
         success {
             echo 'Build and tests ran successfully.'
-            emailext(
-                to: 'ajeet.yadav@in2ittech.com',
-                subject: 'TestNG Results - Success',
-                body: 'The tests completed successfully. Please find the report attached.',
-                attachmentsPattern: '**/test-output/reports/Report.html'
-            )
+           
         }
         failure {
             echo 'Pipeline failed. Check the logs for errors.'
-            emailext(
-                to: 'ajeet.yadav@in2ittech.com',
-                subject: 'TestNG Results - Failure',
-                body: 'The pipeline failed. Please check the logs and attached report.',
-                attachmentsPattern: '**/test-output/reports/Report.html'
-            )
         }
     }
 }
